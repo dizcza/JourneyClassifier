@@ -7,12 +7,12 @@ This project uses GPS points (check-ins) to classify them into groups by the sam
 The input data from GPS should be formatted as
 <table style="width:100%">
   <tr>
-    <td>Jill</td>
-    <td>Smith</td>		
-    <td>50</td>
+    <td>UniqueID</td>
+    <td>UnixTime</td>		
+    <td>Latitude</td>
+    <td>Longitude</td>
   </tr>
 </table>
-    <p>UniqueID    UnixTime    Latitude    Longitude</p>
 and stored in “checkins.csv”.
 
 The output data (“checkins_upd.csv”) contains additional right column that represents group ID, classified by the same year and the same country in.
