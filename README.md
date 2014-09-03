@@ -6,6 +6,12 @@ JourneyClassifier
 This project uses GPS points (check-ins) to classify them into groups by the same year and the same country. You can also visualize all your check-ins on the world map.
 The input data from GPS should be formatted as
 <div id="csv_format", style="width: 200px">
+<table style="width:100%">
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>		
+    <td>50</td>
+  </tr>
     <p>UniqueID    UnixTime    Latitude    Longitude</p>
 </div>
 and stored in “checkins.csv”.
