@@ -6,8 +6,8 @@ JourneyClassifier
 </head>
 
 <body>
-This project uses GPS points (check-ins) to classify them into groups by the same year and the same country. You can also visualize all your check-ins on the world map.
-The input data from GPS should be formatted as
+<p>This project uses GPS points (check-ins) to classify them into groups by the same year and the same country. You can also visualize all your check-ins on the world map.</p>
+<p>The input data from GPS should be formatted as
 <table style="width:100%">
   <tr>
     <td>UniqueID</td>
@@ -15,9 +15,8 @@ The input data from GPS should be formatted as
     <td>Latitude</td>
     <td>Longitude</td>
   </tr>
-</table>
-and stored in “checkins.csv”.
-
+</table> and stored in “checkins.csv”.
+</p>
 The output data (“checkins_upd.csv”) contains additional right column that represents group ID, classified by the same year and the same country in.
 <div><img src="https://www.dropbox.com/s/40b59n1qpfmg3i7/output_map.png?dl=1"/></div>
 In case of being at home at least >70% of all time (the input observation should be taken during one or more years), more than half of GPS observations are found in the country, where the person live and work. Thus, you can figure out the home localization (shown as a yellow star on the map).
