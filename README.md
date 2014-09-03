@@ -23,10 +23,10 @@ and stored in “checkins.csv”.
 <p>In case of being at home at least >70% of all time (the input observation should be taken during one or more years), more than half of GPS observations are found in the country, where the person live and work. Thus, you can figure out the home localization (shown as a yellow star on the map).</p>
 <p>All country boundaries have been taken from the <a href="http://www.diva-gis.org/Data">Free Spatial Data</a>. You should <a href="http://biogeo.ucdavis.edu/data/world/countries_shp.zip">download global country boundaries</a> and unzip the “countries.shp” in the project directory or use provided one from here.</p>
 <p>You must have Python2.7.x installed on your computer with the <b>obligatory packages</b> below to run the project. It was tested on Python2.7.8.</p>
-<p>Obligatory Python packages:</p>
+<p>Obligatory Python packages (can be found at http://www.lfd.uci.edu/~gohlke/pythonlibs/):</p>
 <ul>
     <li>matplotlib (with pyparsing, dateutil, pytz and six)</li>
-	<li>matplotlib basemap toolkit to visualize data</li>
+	<li>basemap toolkit to visualize data</li>
 	<li>numpy</li>
 	<li>scipy</li>
 	<li>fiona (with GDAL) to read a shapefile and get country boundaries.
