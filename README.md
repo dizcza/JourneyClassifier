@@ -2,7 +2,7 @@ JourneyClassifier
 =================
 <html>
 <head>
-<h2 align="center">Visualize and classify your GPS shots</h2>
+<h3 align="center">Visualize and classify your GPS shots</h3>
 </head>
 
 <body>
