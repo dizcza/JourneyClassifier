@@ -1,11 +1,11 @@
 JourneyClassifier
 =================
 <html>
-<head>
-<center>Visualize and classify your GPS shots</center>
-</head>
-
 <body>
+<center>Visualize and classify your GPS shots</center>
+
+
+
 This project uses GPS points (check-ins) to classify them into groups by the same year and the same country. You can also visualize all your check-ins on the world map.
 The input data from GPS should be formatted as
 <table style="width:100%">
