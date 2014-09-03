@@ -15,9 +15,9 @@ All country boundaries have been taken from the Free Spatial Data (http://www.di
 You must have Python2.7.x installed on your computer with the obligatory packages below to run the project. It was tested on Python2.7.8.
 Obligatory Python packages:
 <ul>
-•	<li>matplotlib (with pyparsing, dateutil, pytz and six)</li>
-•	<li>matplotlib basemap toolkit to visualize data</li>
-•	<li>numpy</li>
-•	<li>scipy</li>
-•	<li>fiona (with GDAL) to read a shapefile and get country boundaries.
+    <li>matplotlib (with pyparsing, dateutil, pytz and six)</li>
+	<li>matplotlib basemap toolkit to visualize data</li>
+	<li>numpy</li>
+	<li>scipy</li>
+	<li>fiona (with GDAL) to read a shapefile and get country boundaries.
 </ul>
