@@ -3,11 +3,14 @@ __author__ = 'dizcza'
 
 # THIS IS A FILE TO TUN THE PROJECT JourneyClassifier
 # For more info go to https://github.com/dizcza/JourneyClassifier
-
+import time, csv
 from datetime import datetime
-import journeyhandler, csv
+
+# run a timer and import data from journeyhandler.py
+time_start = time.time()
+import journeyhandler
 from journeyhandler import COUNTRY_BOUNDARIES as BOUNDARIES
-import time
+
 
 
 def classify(years, journey_zones):
@@ -49,8 +52,6 @@ def classify(years, journey_zones):
     return group_list
 
 
-# BEGIN TO OPERATE DATA.
-start = time.time()
 print "\n" + "*" * 20 + " Begin to operate data. " + "*" * 20
 
 csvfile = open('checkins.csv', 'r')
@@ -101,6 +102,6 @@ except:
 finally:
     csvfile.close()
 
-end = time.time()
+time_end = time.time()
 print "*" * 25 + " THE END. " + "*" * 25 + "\n"
-print "Execution time: %g sec." % (end - start)
+print "Execution time: %g sec." % (time_end - time_start)

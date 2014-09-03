@@ -250,13 +250,14 @@ def visualize_data(lat, lon, home=None, quality='l'):
     m.drawmeridians(np.arange(0.0, 361.0, 60.), labels=[True, False, False, True])
     m.drawmapboundary(fill_color='aqua')
 
-    xpt, ypt = m(lon, lat)      # convert to map projection coords.
-    m.plot(xpt, ypt, 'bo')      # plot a blue dot for each check-in
+    Xpt, Ypt = m(lon, lat)                                # convert to map projection coords.
+    m.plot(Xpt, Ypt, 'bo', markersize=8, alpha=0.5, label="check-in")      # plot a blue dot for each check-in
 
     if home:
         xpt_home, ypt_home = m(home[1], home[0])
-        plt.plot(xpt_home, ypt_home, 'ro', color='yellow', alpha=1.0, marker='$\star$', markersize=20, label="home")
-        plt.text(0, 0, 'Home location (plotted as a star): (%.2f,%.2f)'%(home[0],home[1]), size=16, color=(0.8,0.8,0))
+        plt.plot(xpt_home, ypt_home, 'ro', color='yellow', marker='$\star$', markersize=25, label="home")
+        #plt.text(0, 0, 'Home location (plotted as a star): (%.2f,%.2f)' % (home[0], home[1]), size=16)
+        plt.legend(numpoints=1)
     plt.title("Check-ins visualization")
 
     plt.show()
