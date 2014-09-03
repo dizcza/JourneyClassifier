@@ -228,13 +228,19 @@ def setzones(data):
     return journey_zones
 
 
-def visualize_data(lat, lon, home=None):
-    """	 Visualize the data all over the world.	"""
+def visualize_data(lat, lon, home=None, quality='l'):
+    """
+        Visualize the data all over the world.
+        home: home localization (if it's turned on)
+        quality: map resolution of boundary database.
+                 Can be c (crude), l (low), i (intermediate), h (high), f (full) or None.
+                 Set to low ('l').
+    """
     # Custom adjust of the subplots
     plt.subplots_adjust(left=0.05,right=0.95,top=0.90,bottom=0.05,wspace=0.15,hspace=0.05)
 
     # Make a map for the whole world
-    m = Basemap(resolution='l',projection='merc', llcrnrlat=-65.0,urcrnrlat=85.0,llcrnrlon=-170.0,urcrnrlon=170.0)
+    m = Basemap(resolution=quality,projection='merc', llcrnrlat=-65.0,urcrnrlat=85.0,llcrnrlon=-170.0,urcrnrlon=170.0)
     m.drawcountries(linewidth=0.7)
     m.drawcoastlines(linewidth=0.7)
     m.fillcontinents(color='coral',lake_color='aqua')
