@@ -1,7 +1,8 @@
-JourneyClassifier
-=================
 <!DOCTYPE html>
 <html>
+JourneyClassifier
+=================
+
 <head>Visualize and classify your GPS shots</head>
 
 <body>
