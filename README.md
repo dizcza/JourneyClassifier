@@ -12,6 +12,7 @@ The input data from GPS should be formatted as
     <td>Smith</td>		
     <td>50</td>
   </tr>
+</table>
     <p>UniqueID    UnixTime    Latitude    Longitude</p>
 </div>
 and stored in “checkins.csv”.
