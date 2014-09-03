@@ -15,6 +15,7 @@
     There should be 264 different countries/territories in the COUNTRY_BOUNDARIES
     N (num_of_parts) is a quantity of administrative zones in the particular country.
     Each country/territory has at least 1 of those parts -- its boundary (f.e., small islands).
+    For more info go to https://github.com/dizcza/JourneyClassifier
 """
 
 import random

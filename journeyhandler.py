@@ -7,6 +7,7 @@
             with more than 70% stay-ins in the same place on the world map;
     2) visualize data (check-ins) over the map;
     3) correlate each check-in (GPS: latitude and longitude) with a country;
+ For more info go to https://github.com/dizcza/JourneyClassifier
 """
 
 __author__ = 'dizcza'

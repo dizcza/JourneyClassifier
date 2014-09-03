@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 __author__ = 'dizcza'
 
+# THIS IS A FILE TO TUN THE PROJECT JourneyClassifier
+# For more info go to https://github.com/dizcza/JourneyClassifier
+
 from datetime import datetime
 import journeyhandler, csv
 from journeyhandler import COUNTRY_BOUNDARIES as BOUNDARIES
