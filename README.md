@@ -25,11 +25,11 @@ and stored in “checkins.csv”.
 <p>You must have Python2.7.x installed on your computer with the <b>obligatory packages</b> below to run the project. It was tested on Python2.7.8.</p>
 <p>Obligatory Python packages (can be found at http://www.lfd.uci.edu/~gohlke/pythonlibs/):</p>
 <ul>
-    <li>matplotlib (with pyparsing, dateutil, pytz and six)</li>
-	<li>basemap toolkit to visualize data</li>
-	<li>numpy</li>
-	<li>scipy</li>
-	<li>fiona (with GDAL) to read a shapefile and get country boundaries.
+    <li><b>matplotlib</b> (with <b>pyparsing</b>, <b>dateutil</b>, <b>pytz</b> and <b>six</b>)</li>
+	<li><b>basemap</b> toolkit to visualize data</li>
+	<li><b>numpy</b></li>
+	<li><b>scipy</b></li>
+	<li><b>fiona</b> (with <b>GDAL</b>) to read a shapefile and get country boundaries.
 </ul>
 </body>
 </html>
