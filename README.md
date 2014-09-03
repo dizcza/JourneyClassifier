@@ -1,8 +1,10 @@
 JourneyClassifier
 =================
+<!DOCTYPE html>
+<html>
+<head>Visualize and classify your GPS shots</head>
 
-    Visualize and classify your GPS shots
-
+<body>
 This project uses GPS points (check-ins) to classify them into groups by the same year and the same country. You can also visualize all your check-ins on the world map.
 The input data from GPS should be formatted as
 <table style="width:100%">
@@ -29,3 +31,5 @@ You must have Python2.7.x installed on your computer with the obligatory package
 	<li>scipy</li>
 	<li>fiona (with GDAL) to read a shapefile and get country boundaries.
 </ul>
+</body>
+</html>
