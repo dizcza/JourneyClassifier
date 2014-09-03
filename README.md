@@ -9,6 +9,7 @@ The input data from GPS should be formatted as
 and stored in “checkins.csv”.
 
 The output data (“checkins_upd.csv”) contains additional right column that represents group ID, classified by the same year and the same country in.
+<img src="output_map.png"/>
 In case of being at home at least >70% of all time (the input observation should be taken during one or more years), more than half of GPS observations are found in the country, where the person live and work. Thus, you can figure out the home localization (shown as a yellow star on the map).
 All country boundaries have been taken from the <a href="http://www.diva-gis.org/Data">Free Spatial Data</a>. You should <a href="http://biogeo.ucdavis.edu/data/world/countries_shp.zip">download global country boundaries</a> and unzip the “countries.shp” in the project directory or use provided one from here.
 
