@@ -29,7 +29,8 @@ and stored in “checkins.csv”.
 	<li><b>basemap</b> toolkit to visualize data</li>
 	<li><b>numpy</b></li>
 	<li><b>scipy</b></li>
-	<li><b>fiona</b> (with <b>GDAL</b>) to read a shapefile and get country boundaries.
+	<li><b>fiona</b> (with <b>GDAL</b>) to read a shapefile and get country boundaries
+	<li><b>sklearn</b> to use k-means algorithm to determine home localization
 </ul>
 </body>
 </html>
