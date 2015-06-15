@@ -92,7 +92,7 @@ def open_shapefile(shpfile_name='countries.shp'):
     #initialize_data()
 
     shpfile = fiona.open(shpfile_name, mode='r')
-    print "Shapefile %s is successfully opened." % shpfile_name
+    print("Shapefile %s is successfully opened." % shpfile_name)
 
     for country in shpfile:
         # Clear the list of boundaries after previous calling the func unwrap(coordinates)
@@ -128,9 +128,9 @@ def get_country_boundaries():
     open_shapefile()
     return country_data
 
-# Test data if you want to.
+
 if __name__ == "__main__":
     open_shapefile()
-    # Plots the boundary for Ukraine.
+    # plots Ukraine state boundaries.
     plot_the_country("Ukraine")
     plt.show()

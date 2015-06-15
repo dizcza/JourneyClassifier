@@ -1,0 +1,12 @@
+# do not track compiled files
+__pycache__/
+
+
+# exlude PyCharm project setting
+.idea/
+
+
+# you should manually download this file from 
+# http://biogeo.ucdavis.edu/data/world/countries_shp.zip
+# and place it into global project directory
+countries.*

@@ -54,7 +54,7 @@ def max_with_index(data):
             if data[item] == largest_val:
                 return largest_val, item
     except:
-        print "\n\tError in calling %s." % get_func_name()
+        print("\n\tError in calling %s." % get_func_name())
         return 0, 0
 
 
@@ -74,7 +74,7 @@ def get_data_length(data):
     elif is_iterable(data[0]) and is_iterable(data[1]):
         data_length = len(data[0])
         if len(data[0]) != len(data[1]):
-            print "\tLength mismatch in %s. Took a minimum." % get_func_name()
+            print("\tLength mismatch in %s. Took a minimum." % get_func_name())
             data_length = min([len(data[0]), len(data[1])])
     return data_length
 
@@ -97,8 +97,8 @@ def inside_polygon(x, y, poly):
     inside = False
 
     if num_of_sides < 3:
-        print "\nError in processing %s: input data must be a list/tuple with 2 lists/tuples inside. " \
-              "Each of them must contain at least 3 items (points) to create a polygon." % get_func_name()
+        print("\nError in processing %s: input data must be a list/tuple with 2 lists/tuples inside. " \
+              "Each of them must contain at least 3 items (points) to create a polygon." % get_func_name())
         return False
 
     try:
@@ -114,7 +114,7 @@ def inside_polygon(x, y, poly):
                             inside = not inside
             p1x, p1y = p2x, p2y
     except:
-        print "\n\t(!)%s: Invalid data input." % get_func_name()
+        print("\n\t(!)%s: Invalid data input." % get_func_name())
     finally:
         return inside
 
@@ -124,14 +124,14 @@ def find_country(lat, lon, dispersion=0):
         Classify a country by check-in coord (lat, lon).
         dispersion - how far is (lat, lon) from the country boundary (in minutes).
     """
-    for country_name, country in COUNTRY_BOUNDARIES.iteritems():    # Loop over all country box boundaries
-        if inside_polygon(lat, lon, country["polybox"]):            # if it is in the country box border
-            for each_part in country["boundary"]:                   # Loop through each adm territory boundary
+    for country_name, country in COUNTRY_BOUNDARIES.items():  # Loop over all country box boundaries
+        if inside_polygon(lat, lon, country["polybox"]):  # if it is in the country box border
+            for each_part in country["boundary"]:  # Loop through each adm territory boundary
                 # if we turn on the dispersion around the map:
-                if dispersion and min(dist([lat,lon], zip(each_part[0], each_part[1]))) < dispersion:
+                if dispersion and min(dist([lat, lon], zip(each_part[0], each_part[1]))) < dispersion:
                     return country_name
                 # otherwise, do an accurate search and check whether it is in a current country boundary
-                elif inside_polygon(lat, lon, zip(each_part[0], each_part[1])):
+                elif inside_polygon(lat, lon, tuple(zip(each_part[0], each_part[1]))):
                     # we found it!
                     return country_name
 
@@ -143,10 +143,10 @@ def figure_out_home(degrees_data):
 		to the same place during taken observations.
 	 'BOUNDARIES' contains information about world countries BOUNDARIES.
 	"""
-    print "Finding a home location..."
+    print("Finding a home location...")
     data_length = get_data_length(degrees_data)
     if data_length == 0:
-        print "\n\t(!)%s: Invalid data input: not enough size of data." % get_func_name()
+        print("\n\t(!)%s: Invalid data input: not enough size of data." % get_func_name())
         return [0, 0], ""
 
     data_array = np.array([0., ] * 2 * data_length).reshape(data_length, 2)
@@ -196,24 +196,24 @@ def setzones(data):
     journey_zones = ['' for dummy_checkin in range(data_length)]
 
     if data_length == 0:
-        print "\n\t(!) %s: Invalid data input: not enough size of data." % get_func_name()
+        print("\n\t(!) %s: Invalid data input: not enough size of data." % get_func_name())
         return journey_zones
 
     for checkin in range(data_length):
         latitude = data[0][checkin]
         longitude = data[1][checkin]
 
-        dispersion = 0      # Firstly, we try to classify data without any dispersion on it.
-        while True:         # do it unless we classify the check-in
+        dispersion = 0  # Firstly, we try to classify data without any dispersion on it.
+        while True:  # do it unless we classify the check-in
             country_name = find_country(latitude, longitude, dispersion)
-            if country_name:                                # if we found
-                journey_zones[checkin] = country_name       # Store it in journey_zones
-                if dispersion:          # if we used dispersion to classify the current check-in
-                    print "#%d: (%g, %g) is out from %s with dispersion = %g'" % \
-                          (checkin, latitude, longitude, country_name, dispersion)
+            if country_name:  # if we found
+                journey_zones[checkin] = country_name  # Store it in journey_zones
+                if dispersion:  # if we used dispersion to classify the current check-in
+                    print("#%d: (%g, %g) is out from %s with dispersion = %g'" % \
+                          (checkin, latitude, longitude, country_name, dispersion))
                 else:
                     # if we found a country for the (lat, lon) with no dispersion (accurate search)
-                    print "#%d: (%g, %g) %s " % (checkin, latitude, longitude, country_name)
+                    print("#%d: (%g, %g) %s " % (checkin, latitude, longitude, country_name))
                 break
             else:
                 # if some GPS-point failed to classify itself, sprawl each country boundary by 1 minute
@@ -222,9 +222,9 @@ def setzones(data):
     # Verify the results.
     mismatches = journey_zones.count('') + journey_zones.count(None)
     if mismatches:
-        print "# of classifier mismatches in journey zones after all: %d" % mismatches
+        print("# of classifier mismatches in journey zones after all: %d" % mismatches)
     else:
-        print "All check-ins have found their geographical country."
+        print("All check-ins have found their geographical country.")
 
     return journey_zones
 
@@ -238,25 +238,26 @@ def visualize_data(lat, lon, home=None, quality='l'):
                  Set to low ('l').
     """
     # Custom adjust of the subplots
-    plt.subplots_adjust(left=0.05,right=0.95,top=0.90,bottom=0.05,wspace=0.15,hspace=0.05)
+    plt.subplots_adjust(left=0.05, right=0.95, top=0.90, bottom=0.05, wspace=0.15, hspace=0.05)
 
     # Make a map for the whole world
-    m = Basemap(resolution=quality,projection='merc', llcrnrlat=-65.0,urcrnrlat=85.0,llcrnrlon=-170.0,urcrnrlon=170.0)
+    m = Basemap(resolution=quality, projection='merc', llcrnrlat=-65.0, urcrnrlat=85.0, llcrnrlon=-170.0,
+                urcrnrlon=170.0)
     m.drawcountries(linewidth=0.7)
     m.drawcoastlines(linewidth=0.7)
-    m.fillcontinents(color='coral',lake_color='aqua')
+    m.fillcontinents(color='coral', lake_color='aqua')
 
     m.drawparallels(np.arange(-90.0, 91.0, 30.), labels=[False, True, True, False])
     m.drawmeridians(np.arange(0.0, 361.0, 60.), labels=[True, False, False, True])
     m.drawmapboundary(fill_color='aqua')
 
-    Xpt, Ypt = m(lon, lat)                                # convert to map projection coords.
-    m.plot(Xpt, Ypt, 'bo', markersize=8, alpha=0.5, label="check-in")      # plot a blue dot for each check-in
+    Xpt, Ypt = m(lon, lat)  # convert to map projection coords.
+    m.plot(Xpt, Ypt, 'bo', markersize=8, alpha=0.5, label="check-in")  # plot a blue dot for each check-in
 
     if home:
         xpt_home, ypt_home = m(home[1], home[0])
         plt.plot(xpt_home, ypt_home, 'ro', color='yellow', marker='$\star$', markersize=25, label="home")
-        #plt.text(0, 0, 'Home location (plotted as a star): (%.2f,%.2f)' % (home[0], home[1]), size=16)
+        # plt.text(0, 0, 'Home location (plotted as a star): (%.2f,%.2f)' % (home[0], home[1]), size=16)
         plt.legend(numpoints=1)
     plt.title("Check-ins visualization")
 

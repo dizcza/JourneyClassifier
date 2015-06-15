@@ -3,14 +3,14 @@ __author__ = 'dizcza'
 
 # THIS IS A FILE TO TUN THE PROJECT JourneyClassifier
 # For more info go to https://github.com/dizcza/JourneyClassifier
-import time, csv
+import time
+import csv
 from datetime import datetime
 
 # run a timer and import data from journeyhandler.py
 time_start = time.time()
 import journeyhandler
 from journeyhandler import COUNTRY_BOUNDARIES as BOUNDARIES
-
 
 
 def classify(years, journey_zones):
@@ -23,7 +23,7 @@ def classify(years, journey_zones):
         if data_length == 0:
             raise Exception
     except:
-        print "\n\t(!) %s: Invalid data input.\n" % journeyhandler.get_func_name()
+        print("\n\t(!) %s: Invalid data input.\n" % journeyhandler.get_func_name())
         return
 
     group_list = [0 for dummy_checkin in range(data_length)]
@@ -33,7 +33,7 @@ def classify(years, journey_zones):
     first_year = min(years)
     last_year = max(years)
     for year in range(last_year, first_year - 1, -1):
-        for country_name in BOUNDARIES.iterkeys():
+        for country_name in BOUNDARIES.keys():
             # If data sample with current zone in current year is found, checker 'isfound' becomes True.
             isfound = False
             for checkin in range(data_length - 1, -1, -1):
@@ -48,11 +48,11 @@ def classify(years, journey_zones):
                 # travelling group and reset found matches.
                 ids += 1
 
-    print "OUTPUT: Have found %d groups of travellings." % max(group_list)
+    print("OUTPUT: Have found %d groups of travellings." % max(group_list))
     return group_list
 
 
-print "\n" + "*" * 20 + " Begin to operate data. " + "*" * 20
+print("\n" + "*" * 20 + " Begin to operate data. " + "*" * 20)
 
 csvfile = open('checkins.csv', 'r')
 data = csv.reader(csvfile, delimiter=',')
@@ -79,7 +79,7 @@ NUM_OF_CHECKINS = len(ID)
 
 # Finding home location.
 homeloc, native_country_name = journeyhandler.figure_out_home([latitude, longitude])
-print "Home location: %s \t" % native_country_name, homeloc
+print("Home location: %s \t" % native_country_name, homeloc)
 
 # Visualize the data, if you want.
 journeyhandler.visualize_data(latitude, longitude, home=homeloc)
@@ -98,10 +98,10 @@ try:
         outputfile.writerow(
             [ID[checkin], timeunix[checkin], latitude[checkin], longitude[checkin], group_list[checkin]])
 except:
-    print "\nOUTPUT ERROR: Cannot write the results into the output file.\n"
+    print("\nOUTPUT ERROR: Cannot write the results into the output file.\n")
 finally:
     csvfile.close()
 
 time_end = time.time()
-print "*" * 25 + " THE END. " + "*" * 25 + "\n"
-print "Execution time: %g sec." % (time_end - time_start)
+print("*" * 25 + " THE END. " + "*" * 25 + "\n")
+print("Execution time: %g sec." % (time_end - time_start))
